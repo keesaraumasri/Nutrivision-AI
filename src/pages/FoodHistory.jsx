@@ -1,0 +1,2 @@
+import { History, Utensils } from 'lucide-react';
+export default function FoodHistory(){return <><div className="page-title"><span className="eyebrow">YOUR MEAL JOURNAL</span><h1>Food history <span>📖</span></h1><p>Keep track of meals as the project grows.</p></div><div className="panel empty-history"><div className="empty-state"><History size={44}/><h2>No meals recorded yet</h2><p>After backend integration, analyzed meals can be saved here with their nutrition details.</p><Utensils size={22}/></div></div></>}

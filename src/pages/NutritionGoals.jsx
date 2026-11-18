@@ -1,0 +1,6 @@
+import { Target, Flame, Beef, Wheat, Droplets } from 'lucide-react';
+import { estimateDailyNeeds } from '../utils/nutritionCalculator.js';
+export default function NutritionGoals({profile}) {
+ const n=estimateDailyNeeds(profile); const rows=[['Calories',n.calories,'kcal',Flame],['Protein',n.protein,'g',Beef],['Carbohydrates',n.carbs,'g',Wheat],['Fat',Math.round(n.calories*.3/9),'g',Target],['Water',n.water,'L',Droplets]];
+ return <><div className="page-title"><span className="eyebrow">PERSONALIZED OVERVIEW</span><h1>Nutrition goals <span>🎯</span></h1><p>Starting estimates based on your profile, for learning and demonstration.</p></div><div className="panel"><div className="panel-title"><Target/><div><h2>Your estimated daily targets</h2><p>Based on weight and a simple activity multiplier.</p></div></div><div className="goal-list">{rows.map(([label,value,unit,Icon])=><div className="goal-row" key={label}><span className="goal-icon"><Icon size={18}/></span><b>{label}</b><strong>{value} <small>{unit}</small></strong></div>)}</div></div><div className="notice"><b>Important</b><p>These simplified calculations are not a medical prescription or a complete calorie requirement calculation. A safer personalized estimate needs more context and professional review, especially for minors, pregnancy, eating disorders or medical conditions.</p></div></>;
+}
